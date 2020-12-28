@@ -88,4 +88,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+<<<<<<< HEAD
 Looking-Menu/Thực Đơn/Constants.swift
+=======
+LookingMenu/Utils/Constants.swift
+>>>>>>> Create pull_request_template.md
