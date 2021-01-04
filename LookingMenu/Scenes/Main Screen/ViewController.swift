@@ -53,4 +53,3 @@ final class ViewController: UIViewController {
         tabBarCollection.collectionViewLayout.invalidateLayout()
     }
 }
-
