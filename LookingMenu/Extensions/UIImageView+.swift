@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+
 extension UIImageView {
     func getImageFromURL(imgURL:String) {
         DispatchQueue.global(qos: .userInitiated).async {
