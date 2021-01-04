@@ -1,9 +1,11 @@
 import Foundation
 import UIKit
+
 extension UIView {
     func cornerCircle() {
         layer.cornerRadius = frame.height/2
     }
+    
     func addShadowView(radius: CGFloat) {
         if let black = UIColor(named: "black") {
             layer.shadowColor = black.cgColor
@@ -13,3 +15,4 @@ extension UIView {
         }
     }
 }
+

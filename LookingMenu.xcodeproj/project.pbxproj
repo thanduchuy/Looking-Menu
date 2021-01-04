@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+=======
+		136BC98E25A2A67D0095036D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BC98D25A2A67D0095036D /* UIColor+.swift */; };
+>>>>>>> 4e197549651872e075b73b0bdcdb3de75216e658
 		13989CD7259D5DDF008A5759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989CD6259D5DDF008A5759 /* AppDelegate.swift */; };
 		13989CD9259D5DDF008A5759 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989CD8259D5DDF008A5759 /* SceneDelegate.swift */; };
 		13989CDB259D5DDF008A5759 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989CDA259D5DDF008A5759 /* ViewController.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
+=======
+		136BC98D25A2A67D0095036D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+>>>>>>> 4e197549651872e075b73b0bdcdb3de75216e658
 		13989CD3259D5DDF008A5759 /* LookingMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookingMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13989CD6259D5DDF008A5759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13989CD8259D5DDF008A5759 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 				13989CDF259D5DE0008A5759 /* Assets.xcassets */,
 				13989CE1259D5DE0008A5759 /* LaunchScreen.storyboard */,
 				13989CE4259D5DE0008A5759 /* Info.plist */,
+<<<<<<< HEAD
+=======
+				136BC98D25A2A67D0095036D /* UIColor+.swift */,
+>>>>>>> 4e197549651872e075b73b0bdcdb3de75216e658
 			);
 			path = LookingMenu;
 			sourceTree = "<group>";
@@ -263,6 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13989CDB259D5DDF008A5759 /* ViewController.swift in Sources */,
+<<<<<<< HEAD
+=======
+				136BC98E25A2A67D0095036D /* UIColor+.swift in Sources */,
+>>>>>>> 4e197549651872e075b73b0bdcdb3de75216e658
 				13989CD7259D5DDF008A5759 /* AppDelegate.swift in Sources */,
 				13989CD9259D5DDF008A5759 /* SceneDelegate.swift in Sources */,
 			);

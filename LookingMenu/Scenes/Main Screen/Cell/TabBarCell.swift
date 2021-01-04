@@ -1,16 +1,18 @@
 import UIKit
+
 class TabBarCell: UICollectionViewCell {
-    
+    private var constraintCenterHorizontalIcon : NSLayoutConstraint?
+    private var constraintLeadingIcon : NSLayoutConstraint?
     private lazy var iconTabbar : UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = UIColor(named: "gray")
+        imageView.tintColor = UIColor.getColorDesignByName(nameColor: "red")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var labelTabbar : UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "gray")
+        label.textColor = UIColor.getColorDesignByName(nameColor: "gray")
         label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,9 +25,6 @@ class TabBarCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    private var constraintCenterHorizontalIcon : NSLayoutConstraint?
-    private var constraintLeadingIcon : NSLayoutConstraint?
     
     override func layoutSubviews() {
         addViewBackgroundToTabbar()
@@ -42,20 +41,19 @@ class TabBarCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            if let red = UIColor(named: "red"),
-               let gray = UIColor(named: "gray") {
-                viewBackgroundTabbar.backgroundColor = isSelected ?
-                    red.withAlphaComponent(0.4) : .white
-                if let horizontalIcon = constraintCenterHorizontalIcon,
-                   let leftIcon = constraintLeadingIcon {
-                    horizontalIcon.isActive = !isSelected
-                    leftIcon.isActive = isSelected
-                }
-                iconTabbar.tintColor = isSelected ? red : gray
-                labelTabbar.textColor = isSelected ? red : gray
-                labelTabbar.isHidden = !isSelected
-                animationIconItemTabBarSelected()
+            let red = UIColor.getColorDesignByName(nameColor: "red")
+            let gray = UIColor.getColorDesignByName(nameColor: "gray")
+            viewBackgroundTabbar.backgroundColor = isSelected ?
+                red.withAlphaComponent(0.4) : .white
+            if let horizontalIcon = constraintCenterHorizontalIcon,
+               let leftIcon = constraintLeadingIcon {
+                horizontalIcon.isActive = !isSelected
+                leftIcon.isActive = isSelected
             }
+            iconTabbar.tintColor = isSelected ? red : gray
+            labelTabbar.textColor = isSelected ? red : gray
+            labelTabbar.isHidden = !isSelected
+            animationIconItemTabBarSelected()
         }
     }
     
@@ -117,3 +115,4 @@ class TabBarCell: UICollectionViewCell {
         ])
     }
 }
+

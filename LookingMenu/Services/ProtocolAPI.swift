@@ -1,18 +1,24 @@
 import Foundation
-protocol DataDelegate {
-    func listRecipeRandom(recipes : Recipes)
+
+protocol RecipeRandomDelegate {
+    func getListRecipe(recipes : Recipes)
 }
 
-protocol SearchByName  {
-    func getResultSearch(result: ResultSearch)
+protocol RecipeSearchDelegate {
+    func getListRecipe(result: ResultSearch)
 }
 
-protocol SearchVideoByID  {
-    func getResultSearch(result: Videos)
-}
-
-protocol IngredientAndEquipment  {
+protocol DetailRecipeDelegate {
     func getIngredientAndEquipment(
         ingredient : Ingredients,
         equipment : Equipments)
 }
+
+protocol VideoRecipeDelegate {
+    func getVideoSearch(result: Videos)
+}
+
+protocol TextRecipeDelegate {
+    func getInfoRecipe(result: Information)
+}
+
