@@ -12,72 +12,45 @@ final class APIRecipe {
         return request
     }
     
-    func getRandomRecipe(numberReturn: Int = 5, getListRecipe:
-                            @escaping (_ result : Recipes) -> Void) {
-        let urlString = String(format: UrlAPIRecipe.urlGetRecipeRandom, numberReturn)
-        guard let header = headerAPI(urlString: urlString)
+    func getDataToAPIRecipe<T: Decodable>(from path: String,
+                                          completion: @escaping (T) -> ()) {
+        guard let header = self.headerAPI(urlString: path)
         else { return }
         URLSession.shared.dataTask(with: header) { (data, response, error) in
             do {
                 let decoder = JSONDecoder()
                 guard let data = data else { return }
-                let response = try decoder.decode(Recipes.self, from: data)
-                getListRecipe(response)
+                let response = try decoder.decode(T.self, from: data)
+                completion(response)
             } catch {
                 print(error)
             }
         }.resume()
+    }
+    
+    func getRandomRecipe(offset: Int = 5, getListRecipe:
+                            @escaping (_ result : Recipes) -> Void) {
+        let urlString = String(format: UrlAPIRecipe.urlGetRecipeRandom, offset)
+        getDataToAPIRecipe(from: urlString, completion: getListRecipe)
     }
     
     func searchRecipeByName(query:String, offset: Int = 10, getListRecipe:
                                 @escaping (_ result : ResultSearch) -> Void) {
         let urlString = String(format: UrlAPIRecipe.urlSearchRecipeByName, query, offset)
-        guard let header = headerAPI(urlString: urlString)
-        else { return }
-        URLSession.shared.dataTask(with: header) { (data, response, error) in
-            do {
-                let decoder = JSONDecoder()
-                guard let data = data else { return }
-                let response = try decoder.decode(ResultSearch.self, from: data)
-                getListRecipe(response)
-            } catch {
-                print(error)
-            }
-        }.resume()
+        getDataToAPIRecipe(from: urlString, completion: getListRecipe)
+        
     }
     
     func searchVideoByName(query:String, getVideoSearch:
                             @escaping (_ result : Videos) -> Void) {
         let urlString = String(format: UrlAPIRecipe.urlDataVideoRecipe, query)
-        guard let header = headerAPI(urlString: urlString)
-        else { return }
-        URLSession.shared.dataTask(with: header) { (data, response, error) in
-            do {
-                let decoder = JSONDecoder()
-                guard let data = data else { return }
-                let response = try decoder.decode(Videos.self, from: data)
-                getVideoSearch(response)
-            } catch {
-                print(error)
-            }
-        }.resume()
+        getDataToAPIRecipe(from: urlString, completion: getVideoSearch)
     }
     
     func getInformationRecipe(idRecipe: Int, informationRecipe:
                                 @escaping (_ result : Information) -> Void) {
         let urlString = String(format: UrlAPIRecipe.urlGetDetailRecipe, idRecipe)
-        guard let header = headerAPI(urlString: urlString)
-        else { return }
-        URLSession.shared.dataTask(with: header) { (data, response, error) in
-            do {
-                let decoder = JSONDecoder()
-                guard let data = data else { return }
-                let response = try decoder.decode(Information.self, from: data)
-                informationRecipe(response)
-            } catch {
-                print(error)
-            }
-        }.resume()
+        getDataToAPIRecipe(from: urlString, completion: informationRecipe)
     }
     
     func getEquipmentAndIngredient(idRecipe: Int, getIngredientAndEquipment:
@@ -88,31 +61,30 @@ final class APIRecipe {
                                   idRecipe)]
         var ingredient : Ingredients?
         var equipment : Equipments?
+        
+        func doIngredient(process: Ingredients) -> Void {
+            ingredient = process
+            dispatchGroup.leave()
+        }
+        
+        func doEquipment(process: Equipments) -> Void {
+            equipment = process
+            dispatchGroup.leave()
+        }
+        
         let dispatchGroup = DispatchGroup()
+        
         urlStrings.forEach { element in
             dispatchGroup.enter()
-            guard let header = headerAPI(urlString: element) else { return }
-            URLSession.shared.dataTask(with: header) { (data, response, error) in
-                do {
-                    let decoder = JSONDecoder()
-                    guard let data = data else { return }
-                    if element.contains("ingredientWidget") {
-                        let response = try decoder.decode(Ingredients.self, from: data) as Ingredients
-                        DispatchQueue.main.async {
-                            ingredient = response
-                            dispatchGroup.leave()
-                        }
-                    } else {
-                        let response = try decoder.decode(Equipments.self, from: data) as Equipments
-                        DispatchQueue.main.async {
-                            equipment = response
-                            dispatchGroup.leave()
-                        }
-                    }
-                } catch {
-                    print(error)
+            if element.contains("ingredientWidget") {
+                DispatchQueue.main.async {
+                    self.getDataToAPIRecipe(from: element, completion: doIngredient)
                 }
-            }.resume()
+            } else {
+                DispatchQueue.main.async {
+                    self.getDataToAPIRecipe(from: element, completion: doEquipment)
+                }
+            }
         }
         dispatchGroup.notify(queue: .main) {
             guard let ingredient = ingredient,
@@ -122,4 +94,3 @@ final class APIRecipe {
         }
     }
 }
-
