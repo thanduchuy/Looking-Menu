@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HDg-Ve-BpB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ingredient Controller-->
+        <scene sceneID="4dw-f1-d8p">
+            <objects>
+                <viewController id="n0J-3q-LNA" customClass="IngredientController" customModule="LookingMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kVb-rj-H5r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-uS-p42">
+                                <rect key="frame" x="8" y="8" width="398" height="313.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fSd-RR-QDW">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="313.5"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-jH-aPf">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="266.5"/>
+                                            </pickerView>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9il-sv-KeL">
+                                                <rect key="frame" x="0.0" y="273.5" width="195" height="40"/>
+                                                <color key="backgroundColor" name="red"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="L9i-dp-Hvu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Add Item Vitamin">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addItemToIngredients:" destination="n0J-3q-LNA" eventType="touchUpInside" id="rZG-5a-Nym"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ivw-GJ-Ee1">
+                                        <rect key="frame" x="203" y="0.0" width="195" height="313.5"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ZlH-x5-k1t">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="266.5"/>
+                                            </pickerView>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ks-wF-CCj">
+                                                <rect key="frame" x="0.0" y="273.5" width="195" height="40"/>
+                                                <color key="backgroundColor" name="red"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="dfn-My-U5s"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Add Item Protein">
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addItemToIngredients:" destination="n0J-3q-LNA" eventType="touchUpInside" id="5hs-iJ-U9z"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aje-vm-Q7b">
+                                <rect key="frame" x="149.5" y="796" width="248.5" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8dy-K4-MMp"/>
+                                </constraints>
+                                <state key="normal" title="Search Recipe By Ingredients">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToViewSearch:" destination="n0J-3q-LNA" eventType="touchUpInside" id="UCP-oM-BNM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-r6-I0K">
+                                <rect key="frame" x="16" y="337.5" width="382" height="442.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchIngredientTableView" rowHeight="81" id="LVl-zR-BAX" customClass="SearchIngredientTableCell" customModule="LookingMenu" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LVl-zR-BAX" id="Xe8-cK-HEC">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeP-ac-PlX">
+                                                    <rect key="frame" x="8" y="4" width="366" height="73"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hv5-OO-4Mq">
+                                                            <rect key="frame" x="16" y="26.5" width="278" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipL-h1-3fI">
+                                                            <rect key="frame" x="310" y="17" width="40" height="39"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="vKh-Jk-zjT"/>
+                                                                <constraint firstAttribute="width" constant="40" id="zAG-tW-CNm"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <state key="normal" backgroundImage="trash.circle" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="removeIngredientCell:" destination="LVl-zR-BAX" eventType="touchUpInside" id="aTH-Uq-Ch7"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="red"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Hv5-OO-4Mq" firstAttribute="centerY" secondItem="ipL-h1-3fI" secondAttribute="centerY" id="3iN-2z-23K"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ipL-h1-3fI" secondAttribute="trailing" constant="16" id="FGz-nW-AfG"/>
+                                                        <constraint firstItem="ipL-h1-3fI" firstAttribute="leading" secondItem="Hv5-OO-4Mq" secondAttribute="trailing" constant="16" id="JBP-4N-hDq"/>
+                                                        <constraint firstItem="ipL-h1-3fI" firstAttribute="centerY" secondItem="JeP-ac-PlX" secondAttribute="centerY" id="Ukh-hb-EP9"/>
+                                                        <constraint firstItem="Hv5-OO-4Mq" firstAttribute="leading" secondItem="JeP-ac-PlX" secondAttribute="leading" constant="16" id="xDe-b3-dNc"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="JeP-ac-PlX" secondAttribute="trailing" constant="8" id="JBJ-tU-cz2"/>
+                                                <constraint firstItem="JeP-ac-PlX" firstAttribute="top" secondItem="Xe8-cK-HEC" secondAttribute="top" constant="4" id="NWf-Rd-Qn4"/>
+                                                <constraint firstItem="JeP-ac-PlX" firstAttribute="leading" secondItem="Xe8-cK-HEC" secondAttribute="leading" constant="8" id="Xff-jx-qp3"/>
+                                                <constraint firstAttribute="bottom" secondItem="JeP-ac-PlX" secondAttribute="bottom" constant="4" id="pDj-OC-0dX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ingredientBackgroundView" destination="JeP-ac-PlX" id="q2K-Px-bMB"/>
+                                            <outlet property="titleIngredientLabel" destination="Hv5-OO-4Mq" id="lmX-Fb-cpp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="n0J-3q-LNA" id="BW1-Q8-70y"/>
+                                    <outlet property="delegate" destination="n0J-3q-LNA" id="GdA-aG-8N0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zrf-1Y-3m0"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="zrf-1Y-3m0" firstAttribute="trailing" secondItem="aje-vm-Q7b" secondAttribute="trailing" constant="16" id="5s4-aD-XDj"/>
+                            <constraint firstItem="Wft-uS-p42" firstAttribute="top" secondItem="kVb-rj-H5r" secondAttribute="top" constant="8" id="AUT-1w-XQ1"/>
+                            <constraint firstItem="aje-vm-Q7b" firstAttribute="width" secondItem="kVb-rj-H5r" secondAttribute="width" multiplier="0.6" id="ArA-R9-GEG"/>
+                            <constraint firstItem="NOV-r6-I0K" firstAttribute="leading" secondItem="zrf-1Y-3m0" secondAttribute="leading" constant="16" id="Gzr-Kh-ahR"/>
+                            <constraint firstItem="zrf-1Y-3m0" firstAttribute="trailing" secondItem="NOV-r6-I0K" secondAttribute="trailing" constant="16" id="NZu-tJ-BCE"/>
+                            <constraint firstItem="aje-vm-Q7b" firstAttribute="top" secondItem="NOV-r6-I0K" secondAttribute="bottom" constant="16" id="VD2-4S-kiH"/>
+                            <constraint firstAttribute="trailing" secondItem="Wft-uS-p42" secondAttribute="trailing" constant="8" id="X1R-9O-zHH"/>
+                            <constraint firstItem="Wft-uS-p42" firstAttribute="leading" secondItem="kVb-rj-H5r" secondAttribute="leading" constant="8" id="o7m-CD-Tcx"/>
+                            <constraint firstItem="Wft-uS-p42" firstAttribute="height" secondItem="kVb-rj-H5r" secondAttribute="height" multiplier="0.35" id="pW5-bZ-rf1"/>
+                            <constraint firstItem="NOV-r6-I0K" firstAttribute="top" secondItem="Wft-uS-p42" secondAttribute="bottom" constant="16" id="xo4-dW-7zm"/>
+                            <constraint firstItem="zrf-1Y-3m0" firstAttribute="bottom" secondItem="aje-vm-Q7b" secondAttribute="bottom" constant="16" id="zVr-Vh-pkF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cdy-OS-5BD"/>
+                    <connections>
+                        <outlet property="addProteinButton" destination="2ks-wF-CCj" id="0zg-Df-H7f"/>
+                        <outlet property="addVitaminButton" destination="9il-sv-KeL" id="Ue9-lq-vjz"/>
+                        <outlet property="proteinPickerView" destination="ZlH-x5-k1t" id="WSa-ka-wOO"/>
+                        <outlet property="searchIngredientTableView" destination="NOV-r6-I0K" id="Rsu-3H-Oom"/>
+                        <outlet property="searchRecipeByIngredientButton" destination="aje-vm-Q7b" id="c1N-Ke-FI2"/>
+                        <outlet property="vitaminPickerView" destination="h5y-jH-aPf" id="7DC-3j-kkJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H84-bN-2gH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3473.913043478261" y="1361.3839285714284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jIZ-6X-0jf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HDg-Ve-BpB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IdQ-qq-KNF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n0J-3q-LNA" kind="relationship" relationship="rootViewController" id="l0j-46-18w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYN-TH-NKH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2563.768115942029" y="1361.3839285714284"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="trash.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="red">
+            <color red="0.97600001096725464" green="0.37299999594688416" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
